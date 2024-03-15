@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+
+
+   
+    <form action="/" method="post">
+        <label for="title">title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="content">content:</label>
+        <input type="text" id="content" name="content" ><br><br>
+        <input type="submit" value="create post">
+      </form>
+      <hr>
+      <h2>My Posts:</h2>
+      
+
+      <% if (locals.Posts ) { %>
+        
+        
+           <% for( let i = 0; i < locals.Posts.length; i++ ) { %>
+                <li>
+                    <strong>title:</strong> <%= Posts[i]["title"] %> 
+                    
+                    <a href="posts/<%= Posts[i]["id"] %>"> details</a>
+                    <a href="delete/<%= Posts[i]["id"] %>"> delete</a>
+                 
+  
+
+                
+                </li>
+           <% } %>
+      <% } %>
+      <% if (!locals.Posts) { %>
+           <p>there is no post</p>
+      <% } %>
+      
+      
+    <%- include('partials/footer.ejs') %>
+
+  
+    
+    
+   
+</body>
+
+
+
+    
+    
+
+
+
+
